@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../../public/_css/bootstrap.min.css">
+
+    <!-- js_ui -->
+    <link rel="stylesheet" href="../../public/_jquery-ui-1.12.1/jquery-ui.css">
+    <script src="../../public/js_jq/jquery-3.4.1.js"></script>
+    <script src="../../public/_jquery-ui-1.12.1/jquery-ui.js"></script>
+
+    <!-- 自己寫 -->
+    <link rel="stylesheet" href="../../public/booking_js_css/booking.css">
+    <script src="../../public/booking_js_css/booking1.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="checkResTlt">
+            <h3>確認您的預訂資料</h3>
+            <a href="../room_html/room_1.html"><img src="../../public/img/icon/arrow-left.svg" alt=""></a>
+        </div>
+        <img src="../../public/img/room/room1/A1.jpg" alt="">
+        <div class="checkRes">
+            <div class="inputPlan">
+                <label for="from"><span>入住日</span></label>
+                <input type="text" id="from" name="from">
+                <label for="to"><span>退房日</span></label>
+                <input type="text" id="to" name="to">
+                <label for="adult"><span>成人</span></label>
+                <select name="adult" id="adult">
+                    <option value="1">1人</option>
+                    <option value="2">2人</option>
+                    <option value="3">3人</option>
+                </select>
+                <label for="child"><span>孩童</span></label>
+                <select name="child" id="child" onchange="childfun()">
+                    <option value="0">0人</option>
+                    <option value="1">1人</option>
+                </select>
+                <!-- 小孩年齡下拉選單 -->
+                <div id="childcheckbox"></div>
+                <br>
+                <input type="submit" value="確認" id="checkItem">
+            </div>
+            <div class="outputPlan">
+                <p>訂房資訊</p>
+
+                <span>房型：</span> <span>2F_one</span> <br>
+                <span>日期：</span> <span id="choseDate"></span> <br>
+                <span>天數：</span> <span id="planDays"></span> <br>
+                <span>人數：</span> <span id="peopleNumber"></span> <br>
+
+                <span>總計：</span> <span id="totalPrice"></span>
+            </div>
+        </div>
+
+
+        <div class="guestInfo">
+            <p>旅客資訊</p>
+            <form>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="guestNameL">
+                                <span>名字</span> <br>
+                                <input type="text" value="" name="guestNameL" id="guestNameL" required>
+                            </label>
+                        </td>
+                        <td>
+                            <label for="email">
+                                <span>Email信箱</span> <br>
+                                <input type="text" value="" name="email" id="email" required>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="guestNameF">
+                                <span>姓氏</span> <br>
+                                <input type="text" value="" name="guestNameF" id="guestNameF" required>
+                            </label>
+                        </td>
+                        <td>
+                            <label for="phoneNum">
+                                <span>電話號碼</span> <br>
+                                <input type="text" value="" name="phoneNum" id="phoneNum" required>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="others">
+                                <span>特殊需求(如加床)</span> <br>
+                                <textarea name="" id="" style="height: 150px;width: 800px;resize: none;"></textarea>
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+                <span>確認預訂即表示您接受我們的<a href="../policy.html">條款與條件</a>。</span>
+                <input type="submit" value="確認送出" id="checkInfo">
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>

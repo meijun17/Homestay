@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../../public/_css/bootstrap.min.css">
+    <script src="../../public/_js/jquery.min.js"></script>
+    <script src="../../public/_js/popper.min.js"></script>
+    <script src="../../public/_js/bootstrap.min.js"></script>
+
+    <!-- js_ui -->
+    <link rel="stylesheet" href="../../public/_jquery-ui-1.12.1/jquery-ui.css">
+    <script src="../../public/js_jq/jquery-3.4.1.js"></script>
+    <script src="../../public/_jquery-ui-1.12.1/jquery-ui.js"></script>
+
+    <!-- 標題 頁尾css -->
+    <link rel="stylesheet" href="../../public/header_footer_css/everypage.css">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+ 
+        /* body{
+            background-color: var(--color21);
+        } */
+
+     
+        /* Main */
+        main {
+            
+            width: 840px;
+            height: 1350px;
+            margin:   auto;
+            padding: 20px;
+            background-color: var(--color22);
+            /* border-right: var(--color21) 5px solid; */
+            /* border-left: var(--color21) 5px solid; */
+        }
+
+        .roomType {
+            width: 800px;
+            height: 50px;
+            margin: auto;
+        }
+
+        .roomType h2 {
+            text-align: center;
+        }
+
+        /* 房價 */
+        .priceTag {
+            text-align: right;
+            margin: auto 10px;
+        }
+
+        .priceImg {
+            width: 20px;
+            display: inline-block;
+            transform: scale(0);
+            transition: 0.3s all linear;
+            margin-right: -1rem;
+        }
+
+        .priceTag:hover .priceImg {
+            margin-right: 0rem;
+            transform: scale(1);
+        }
+
+
+        .priceTag span {
+            font-size: 20px;
+            font-weight: 600;
+
+            /* 文字往後推 */
+            transition: 0.3s all linear;
+            margin-right: 1rem;
+            
+        }
+
+        .priceTag:hover span {
+            /* 文字往後推 */
+            margin-right: 0rem;
+            transform: scale(1);
+            font-size: 22px;
+        }
+
+        .priceTag span a {
+            color: #212529;
+            text-decoration: none;
+        }
+
+
+        /* Images */
+
+        .roomType1 {
+            position: relative;
+            width: 800px;
+            margin: 40px auto 10px auto;
+        }
+
+        .room1Img img {
+            position: absolute;
+            width: 800px;
+            object-fit: cover;
+            display: block;
+            border: 5px white solid;
+        }
+
+        #smallImg img {
+            display: inline-block;
+            width: 120px;
+            margin-top: 500px;
+            cursor: pointer;
+            margin: 550px auto 30px auto;
+
+            border: 2px white solid;
+        }
+
+
+        /* 訂房按鈕 */
+
+        .resBtn {
+            position: absolute;
+            right: 1%;
+            top: 90%;
+        }
+
+        .resBtn p {
+            font-size: 25px;
+            font-weight: 600;
+            display: inline-block;
+            margin: auto 10px;
+        }
+
+        .resBtn button {
+            border: 0;
+            border-radius: 5px;
+            padding: 0 1.5rem;
+            height: 2.5rem;
+            outline: none;
+            background-color: var(--color23);
+        }
+
+        .resBtn button a {
+            text-decoration: none;
+            color: white;
+            font-weight: bolder;
+            letter-spacing: 0.07em;
+        }
+
+        .resBtn button:hover {
+            background-color: var(--color19);
+            outline: none;
+        }
+
+
+        /* 導覽列 */
+        .inReserveAll p {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .inReserveTlt:hover {
+            color: #636363;
+        }
+
+        .mytab {
+            height: 200px;
+        }
+
+        .nav-link {
+            color: #636363;
+        }
+
+        .row .col-3 {
+            margin: 5px auto;
+        }
+
+        .col-3 span {
+            color: #636363;
+            letter-spacing: 1px;
+        }
+
+        .wifi img {
+            display: inline-block;
+            margin: auto 0px 0 5px;
+        }
+
+        /*  checkInAOut  */
+        .checkInAOut p {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .checkInAOut span {
+            color: #636363;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        /*  resNotice  */
+        .resNotice p {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .resNotice span {
+            color: #636363;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .resNotice a {
+            color: #636363;
+            letter-spacing: 1px;
+            display: block;
+            margin: 5px;
+            text-decoration: underline;
+
+        }
+
+        /*  其他房型  */
+
+        .theOthers p {
+            margin: 20px;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .theOthers {
+            position: relative;
+            height: 230px;
+        }
+
+        /*  其他房型 文字 */
+        .othersTxt1 {
+            position: absolute;
+            left: 12%;
+            top: 100%;
+            font-size: 22px;
+            visibility: hidden;
+        }
+
+        .othersTxt2 {
+            position: absolute;
+            left: 45%;
+            top: 100%;
+            font-size: 22px;
+            visibility: hidden;
+        }
+
+        .othersTxt3 {
+            position: absolute;
+            left: 79%;
+            top: 100%;
+            font-size: 22px;
+            visibility: hidden;
+        }
+
+        img:hover~span,
+        span:hover {
+            visibility: visible;
+
+        }
+
+        /*  其他房型 照片 */
+
+        .othersImg1 {
+            position: absolute;
+            width: 250px;
+            margin: auto 15px;
+            transition: 0.4s;
+        }
+
+        .othersImg2 {
+            position: absolute;
+            width: 250px;
+            margin: auto 15px;
+            left: 33%;
+            transition: 0.4s;
+        }
+
+        .othersImg3 {
+            position: absolute;
+            width: 250px;
+            margin: auto 15px;
+            left: 66%;
+            transition: 0.4s;
+        }
+
+        .othersImg1:hover,
+        .othersImg2:hover,
+        .othersImg3:hover {
+            background-color: white;
+            opacity: 0.5;
+            cursor: pointer;
+            transform: scale(1.15);
+            
+        }
+
+        .others a {
+            color: #636363;
+            text-decoration: none;
+        }
+
+   
+
+        /* 跳出視窗 */
+
+        .black_overlay {
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100vh;
+            background-color: black;
+            z-index: 1001;
+            -moz-opacity: 0.8;
+            opacity: .80;
+        }
+
+        .white_content {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            height: 75%;
+            padding: 16px;
+            background-color: white;
+            z-index: 1002;
+            overflow: auto;
+        }
+
+        /* 房價內容 */
+        .tableTlt {
+            font-size: 25px;
+            font-weight: 600;
+            text-align: center;
+            margin: 10px auto 20px;
+        }
+
+        table {
+            border: 2px solid black;
+            border-collapse: collapse;
+            width: 80%;
+            height: 450px;
+            margin: 20px auto 30px;
+        }
+
+        tr th,
+        tr td {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        tr th {
+            font-size: 22px;
+        }
+
+        tr td {
+            font-size: 20px;
+        }
+
+        tr:nth-of-type(odd) {
+            background-color: var(--color22);
+        }
+
+        .tableTxt {
+            text-align: left;
+            margin: 10px 120px;
+        }
+
+    
+    </style>
+</head>
+
+<body>
+    <header class="headBox">
+        <div class="headNav">
+            <span><a id="homeName" href="../index.html">SG House</a></span>
+            <a href="../roomtype.html">房型介紹</a>
+            <a href="../service.html">服務項目</a>
+            <a href="../location.html">交通資訊</a>
+            <a href="../policy.html">訂房須知</a>
+        </div>
+    </header>
+    <main>
+        <div class="roomType">
+            <h2>2F_one</h2>
+            <div class="priceTag">
+                <img class="priceImg" src="../../public/img/icon/tag.svg" alt="">
+                <span>
+
+                    <!-- 跳出視窗 -->
+                    <a href="javascript:void(0)"
+                        onclick="document.getElementById('light').style.display='block'; document.getElementById('fade').style.display='block'">
+                        房價</a>
+                </span>
+                <div id="light" class="white_content">
+                    <a href="javascript:void(0)"
+                        onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
+                        <img class="closeBtn" src="../../public/img/icon/x-lg.svg" alt="">
+                    </a>
+                    <!-- 內容 -->
+                    <div>
+                        <div>
+                            <p class="tableTlt">房價</p>
+                        </div>
+                        <table>
+                            <tr>
+                                <th>房型名稱</th>
+                                <th>方案</th>
+                                <th>入住人數</th>
+                                <th>不分平假日房價</th>
+                            </tr>
+                            <tr>
+                                <th>2F_one</th>
+                                <td>僅住宿</td>
+                                <td>2人入住</td>
+                                <td>2,980/天</td>
+                            </tr>
+                            <tr>
+                                <th>2F_two</th>
+                                <td>僅住宿</td>
+                                <td>2人入住</td>
+                                <td>2,580/天</td>
+                            </tr>
+                            <tr>
+                                <th>3F_one</th>
+                                <td>僅住宿</td>
+                                <td>2人入住</td>
+                                <td>2,380/天</td>
+                            </tr>
+                            <tr>
+                                <th>3F_two</th>
+                                <td>僅住宿</td>
+                                <td>1人入住</td>
+                                <td>980/天</td>
+                            </tr>
+                        </table>
+                        <p class="tableTxt">訂房說明：</p>
+                        <p class="tableTxt">加人服務可加床：每人 500 元(僅限加1床)；8 歲以下孩童每房可有 1 位不佔床不收費</p>
+                    </div>
+
+                </div>
+                <div id="fade" class="black_overlay"></div>
+
+            </div>
+        </div>
+        <div class="roomType1">
+            <div class="room1Img">
+                <img id="bigImg" src="../../public/img/room/room1/A1.jpg" alt="">
+            </div>
+            <div id="smallImg">
+                <img id="imgA1" src="../../public/img/room/room1/A1.jpg" alt="">
+                <img id="imgA2" src="../../public/img/room/room1/A2.jpg" alt="">
+            </div>
+            <div class="resBtn">
+                <p>$2,980</p>
+                <button id="reserveBtnCheck"><a href="../booking_html/booking1.html">訂房</a></button>
+            </div>
+        </div>
+        <div class="inReserveAll">
+            <!-- 導覽列 -->
+            <nav class="nav nav-tabs nav-fill">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active inReserveTlt" data-toggle="tab" href="#inReserve">備品與設施</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link inReserveTlt" data-toggle="tab" href="#checkInAOut">入住與退房時間</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link inReserveTlt" data-toggle="tab" href="#resNotice">訂房須知</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="tab-content">
+                <div id="inReserve" class="container tab-pane active mytab"><br>
+                    <p>Tools Kept In Reserve 備品與設施</p>
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="../../public/img/icon/refrigerator.png" alt="">
+                            <span>小冰箱</span>
+                        </div>
+                        <div class="col-3">
+                            <img src="../../public/img/icon/tea.png" alt="">
+                            <span>茶包、即溶咖啡</span>
+                        </div>
+                        <div class="col-3">
+                            <img src="../../public/img/icon/towel.png" alt="">
+                            <span>浴巾</span>
+                        </div>
+                        <div class="col-3">
+                            <img src="../../public/img/icon/toiletries.png" alt="">
+                            <span>盥洗用品</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="../../public/img/icon/indoor slippers.png" alt="">
+                            <span>室內拖鞋</span>
+                        </div>
+                        <div class="col-3">
+                            <img src="../../public/img/icon/shower cap.png" alt="">
+                            <span>浴帽</span>
+                        </div>
+                        <div class="col-3">
+                            <img src="../../public/img/icon/water.png" alt="">
+                            <span>飲用礦泉水</span>
+                        </div>
+                        <div class="col-3">
+                            <img src="../../public/img/icon/hair dryer.png" alt="">
+                            <span>吹風機</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="../../public/img/icon/Bathtub.png" alt="">
+                            <span>浴缸</span>
+                        </div>
+                        <div class="col-3">
+                            <img src="../../public/img/icon/breakfast.png" alt="">
+                            <span>現做早餐</span>
+                        </div>
+                        <div class="col-3">
+                            <img src="../../public/img/icon/tv.png" alt="">
+                            <span>電視</span>
+                        </div>
+                        <div class="col-3 wifi">
+                            <img src="../../public/img/icon/wifi.svg" alt="" style="width: 20px;">&nbsp;&nbsp;
+                            <span> wifi</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="checkInAOut" class="container tab-pane fade checkInAOut mytab"><br>
+                    <p>Check In and Out 入住與退房時間</p>
+                    <span>Check-In 入住日: 03:00 PM</span><br>
+                    <span>Check-Out 退房日: 11:00 AM</span>
+                    <br>
+                    <br>
+                </div>
+                <div id="resNotice" class="container tab-pane fade resNotice mytab"><br>
+                    <p>Notice 訂房須知</p>
+                    <span>1.全館禁止吸菸</span><br>
+                    <span>2.不得攜帶寵物</span>
+                    <a href="../policy.html">More ></a>
+                </div>
+                <hr>
+
+            </div>
+        </div>
+        <div>
+            <div class="theOthers">
+                <p>The Others 其他房型</p>
+                <div class="others">
+                    <a href="./room_2.html">
+                        <img class="othersImg1" src="../../public/img/room/room2/B1.jpg" alt="">
+                        <span class="othersTxt1">2F_two</span>
+                    </a>
+                </div>
+                <div class="others">
+                    <a href="./room_3.html">
+                        <img class="othersImg2" src="../../public/img/room/room3/C1.jpg" alt="">
+                        <span class="othersTxt2">3F_one</span>
+                    </a>
+                </div>
+                <div class="others">
+                    <a href="./room_4.html">
+                        <img class="othersImg3" src="../../public/img/room/room4/D1.jpg" alt="">
+                        <span class="othersTxt3">3F_two</span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div id="BackTop">
+            <img src="../../public/img/icon/arrow-up-circle-fill.svg" alt="">
+            <p>Back <br>
+                to top</p>
+        </div>
+    </main>
+    <footer class="footerBox">
+        <div class="mytxt">
+            <p>© Copyright SG House - 2021</p>
+        </div>
+    </footer>
+    <script>
+        $(function () {
+            // 點小圖換大圖
+            $('#imgA1,#imgA2,#imgA3,#imgA4').on('click', function () {
+                var n = $(this).attr('id').substr(4);
+                console.log(n);
+                $('#bigImg').attr('src', `../../public/img/room/room1/A${n}.jpg`);
+            })
+            $('#BackTop').click(function () {
+                //當點擊這個按鈕時，自動捲動到網頁最上方，0.600秒完成捲動的動作
+                $('html,body').animate({ scrollTop: 0 }, 600);
+            });
+            
+            //當瀏覽器的捲軸在移動時，就執行以下的程式
+            $(window).scroll(function () {
+                //判斷網頁可視範圍的最上方距離網頁頂端是否超過 300 px  
+                //超過 300 px，以0.222秒的特效顯示按鈕    
+                if ($(this).scrollTop() > 300) {
+                    $('#BackTop').fadeIn(222);
+                    //未超過 300 px，先停止正在進行的特效，接著以 0.222 秒的特效隱藏按鈕        
+                } else {
+                    $('#BackTop').stop().fadeOut(222);
+                }
+            }).scroll();
+        })
+
+  
+    </script>
+</body>
+
+</html>

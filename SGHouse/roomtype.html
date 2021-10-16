@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="stylesheet" href="../public/_css/bootstrap.min.css">
+    <script src="../public/_js/jquery.min.js"></script>
+    <script src="../public/_js/popper.min.js"></script>
+    <script src="../public/_js/bootstrap.min.js"></script>
+
+    <script src="../public/js_jq/jquery-3.4.1.js"></script>
+
+    <!-- 標題 頁尾css -->
+    <link rel="stylesheet" href="../public/header_footer_css/everypage.css">
+
+    <!-- scrollreveal套件 -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+        /* 標題 */
+        .mainBox {
+            position: relative;
+            height: 2000px;
+
+        }
+
+        .introFirst {
+            position: absolute;
+            left: 15%;
+            width: 500px;
+            height: 500px;
+        }
+
+        .introFirst h3,
+        .introFirst h4 {
+            margin: 35px 10px;
+            letter-spacing: 0.1rem;
+            color: #212529;
+        }
+
+        .introFirst p {
+            padding: 10px;
+            letter-spacing: 0.1rem;
+            font-weight: 550;
+            font-size: 23px;
+        }
+
+        .introFirst p a {
+            color: #212529;
+        }
+
+        .introFirst p a:hover {
+            color: #F2CD5E;
+        }
+
+        /* 介紹下面的水平線 */
+        .introFirst:after {
+            content: '';
+            position: absolute;
+            top: 37%;
+            left: 1%;
+            bottom: 0;
+            right: 0;
+            width: 250px;
+            height: 1px;
+            background-color: #dcdcdc;
+        }
+
+        /* 表格一 */
+        .introBox1 {
+            position: absolute;
+            top: 10%;
+            left: 40%;
+            width: 1000px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 房間照片1 */
+        .roomTypeImg1 {
+            width: 700px;
+        }
+
+        .roomTypeImg1 img {
+            width: 700px;
+        }
+
+        /* 房間文字2 */
+        .roomType1 {
+            text-align: center;
+            letter-spacing: 0.07em;
+            background-color: var(--color22);
+        }
+
+        .roomType1 span {
+            display: inline-block;
+            font-size: 18px;
+            padding: 10px 0;
+            letter-spacing: 0.07em;
+        }
+
+        .roomType1 button {
+            border: 0;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 0 1rem;
+            height: 2.5rem;
+            outline: none;
+            background-color: var(--color23);
+        }
+
+        .roomType1 button a {
+            text-decoration: none;
+            color: #EBEFF2;
+            font-size: 1rem;
+            font-weight: bolder;
+            line-height: 1em;
+            letter-spacing: 0.07em;
+        }
+
+        .roomType1 button:hover {
+            background-color: var(--color19);
+            outline: none;
+            color: #EBEFF2;
+        }
+
+        /* 表格二 */
+        .introBox2 {
+            top: 32%;
+            left: 8%;
+            width: 1000px;
+            position: absolute;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 房間照片2 */
+        .roomTypeImg2 {
+            width: 700px;
+        }
+
+        .roomTypeImg2 img {
+            width: 700px;
+        }
+
+        /* 房間文字2 */
+        .roomType2 {
+            text-align: center;
+            letter-spacing: 0.07em;
+            background-color: var(--color22);
+        }
+
+        .roomType2 span {
+            display: inline-block;
+            font-size: 18px;
+            padding: 10px 0;
+            letter-spacing: 0.07em;
+        }
+
+        .roomType2 button {
+            border: 0;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 0 1rem;
+            height: 2.5rem;
+            outline: none;
+            background-color: var(--color23);
+        }
+
+        .roomType2 button a {
+            text-decoration: none;
+            color: #EBEFF2;
+            font-size: 1rem;
+            font-weight: bolder;
+            line-height: 1em;
+            letter-spacing: 0.07em;
+        }
+
+        .roomType2 button:hover {
+            background-color: var(--color19);
+            outline: none;
+            color: #EBEFF2;
+        }
+
+        /* 表格三 */
+        .introBox3 {
+            position: absolute;
+            top: 52%;
+            left: 40%;
+            width: 1000px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 房間照片3 */
+        .roomTypeImg3 {
+            width: 700px;
+        }
+
+        .roomTypeImg3 img {
+            width: 700px;
+        }
+
+        /* 房間文字3 */
+        .roomType3 {
+            text-align: center;
+            letter-spacing: 0.07em;
+            background-color: var(--color22);
+        }
+
+        .roomType3 span {
+            display: inline-block;
+            font-size: 18px;
+            padding: 10px 0;
+            letter-spacing: 0.07em;
+        }
+
+        .roomType3 button {
+            border: 0;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 0 1rem;
+            height: 2.5rem;
+            outline: none;
+            background-color: var(--color23);
+        }
+
+        .roomType3 button a {
+            text-decoration: none;
+            color: #EBEFF2;
+            font-size: 1rem;
+            font-weight: bolder;
+            line-height: 1em;
+            letter-spacing: 0.07em;
+        }
+
+        .roomType3 button:hover {
+            background-color: var(--color19);
+            outline: none;
+            color: #EBEFF2;
+        }
+
+        /* 表格四 */
+        .introBox4 {
+            position: absolute;
+            top: 73%;
+            left: 18%;
+            width: 1000px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 房間照片3 */
+        .roomTypeImg4 {
+            width: 700px;
+        }
+
+        .roomTypeImg4 img {
+            width: 700px;
+        }
+
+        /* 房間文字4 */
+        .roomType4 {
+            text-align: center;
+            letter-spacing: 0.07em;
+            background-color: var(--color22);
+        }
+
+        .roomType4 span {
+            display: inline-block;
+            font-size: 18px;
+            padding: 10px 0;
+            letter-spacing: 0.07em;
+        }
+
+        .roomType4 button {
+            border: 0;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 0 1rem;
+            height: 2.5rem;
+            outline: none;
+            background-color: var(--color23);
+        }
+
+        .roomType4 button a {
+            text-decoration: none;
+            color: #EBEFF2;
+            font-size: 1rem;
+            font-weight: bolder;
+            line-height: 1em;
+            letter-spacing: 0.07em;
+        }
+
+        .roomType4 button:hover {
+            background-color: var(--color19);
+            outline: none;
+            color: #EBEFF2;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="headBox">
+        <div class="headNav">
+            <span><a id="homeName" href="./index.html">SG House</a></span>
+            <a href="./roomtype.html">房型介紹</a>
+            <a href="./service.html">服務項目</a>
+            <a href="./location.html">交通資訊</a>
+            <a href="./policy.html">訂房須知</a>
+        </div>
+    </header>
+    <main class="mainBox">
+        <div class="introFirst">
+            <div class="introTlt">
+                <h3>Guestroom <br>
+                    Introduction</h3>
+                <h4>房型介紹</h4>
+            </div>
+            <div class="introRoom">
+                <p><a href="#room1">2F_one</a></p>
+                <p><a href="#room2">2F_two</a></p>
+                <p><a href="#room3">3F_one</a></p>
+                <p><a href="#room4">3F_two</a></p>
+            </div>
+        </div>
+        <table class="introBox1">
+            <tr id="room1">
+                <td class="roomType1">
+                    <h4>2F_one</h4>
+                    <img src="../public/img/icon/people.svg" alt="" style="width: 25px;">
+                    <span>Sleeps2</span>
+                    <br>
+                    <img src="../public/img/icon/bed.svg" alt="" style="width: 25px;">
+                    <span>Double bed</span>
+                    <br>
+                    <button class="introBtn1">
+                        <a href="./room_html/room_1.html">Select Room » </a>
+                    </button>
+                </td>
+                <td class="roomTypeImg1">
+                    <img src="../public/img/room/roomtype/001.jpg" alt="">
+                </td>
+            </tr>
+        </table>
+        <table class="introBox2">
+            <tr id="room2">
+                <td class="roomTypeImg2">
+                    <img src="../public/img/room/roomtype/002.jpg" alt="">
+                </td>
+                <td class="roomType2">
+                    <h4>2F_two</h4>
+                    <img src="../public/img/icon/people.svg" alt="" style="width: 25px;">
+                    <span>Sleeps2</span>
+                    <br>
+                    <img src="../public/img/icon/bed.svg" alt="" style="width: 25px;">
+                    <span>Double bed</span>
+                    <br>
+                    <button class="introBtn2">
+                        <a href="./room_html/room_2.html">Select Room » </a>
+                    </button>
+                </td>
+            </tr>
+        </table>
+        <table class="introBox3">
+            <tr id="room3">
+                <td class="roomType3">
+                    <h4>3F_one</h4>
+                    <img src="../public/img/icon/people.svg" alt="" style="width: 25px;">
+                    <span>Sleeps2</span>
+                    <br>
+                    <img src="../public/img/icon/bed.svg" alt="" style="width: 25px;">
+                    <span>Double bed</span>
+                    <br>
+                    <button class="introBtn3">
+                        <a href="./room_html/room_3.html">Select Room » </a>
+                    </button>
+                </td>
+                <td class="roomTypeImg3">
+                    <img src="../public/img/room/roomtype/003.jpg" alt="">
+                </td>
+            </tr>
+        </table>
+        <table class="introBox4">
+            <tr id="room4">
+                <td class="roomTypeImg4">
+                    <img src="../public/img/room/roomtype/004.jpg" alt="">
+                </td>
+                <td class="roomType4">
+                    <h4>3F_two</h4>
+                    <img src="../public/img/icon/people.svg" alt="" style="width: 25px;">
+                    <span>Sleep1</span>
+                    <br>
+                    <img src="../public/img/icon/bed.svg" alt="" style="width: 25px;">
+                    <span>Single bed</span>
+                    <br>
+                    <button class="introBtn4">
+                        <a href="./room_html/room_4.html">Select Room » </a>
+                    </button>
+                </td>
+            </tr>
+        </table>
+       
+    </main>
+    <div id="BackTop">
+        <img src="../public/img/icon/arrow-up-circle-fill.svg" alt="">
+        <p>Back <br>
+            to top</p>
+    </div>
+    <footer class="footerBox">
+        <div class="mytxt">
+            <p>© Copyright SG House - 2021</p>
+        </div>
+    </footer>
+
+    <script>
+
+        $(function () {
+            $('#BackTop').click(function () {
+                //當點擊這個按鈕時，自動捲動到網頁最上方，0.600秒完成捲動的動作
+                $('html,body').animate({ scrollTop: 0 }, 600);
+            });
+            //當瀏覽器的捲軸在移動時，就執行以下的程式
+            $(window).scroll(function () {
+                //判斷網頁可視範圍的最上方距離網頁頂端是否超過 300 px  
+                //超過 300 px，以0.222秒的特效顯示按鈕    
+                if ($(this).scrollTop() > 300) {
+                    $('#BackTop').fadeIn(222);
+                    //未超過 300 px，先停止正在進行的特效，接著以 0.222 秒的特效隱藏按鈕        
+                } else {
+                    $('#BackTop').stop().fadeOut(222);
+                }
+            }).scroll();
+        });
+
+
+
+        // ScrollReveal設定
+
+        ScrollReveal().reveal('.mainBox,.introBox1,.introBox2,.introBox3,.introBox4', {
+            reset: true,   //設定特效是否為單次出現，預設為單次
+            origin: 'top',  //預設效果起始位置從右方出現
+            distance: '50px',  //控制元素在顯示時移動多遠
+            easing: 'ease-in-out',  //轉場速率 
+            scale: 0.95,  //縮放比例
+            
+        });
+
+
+
+    </script>
+
+</body>
+
+
+</html>

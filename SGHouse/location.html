@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../public/_css/bootstrap.min.css">
+    <script src="../public/_js/jquery.min.js"></script>
+    <script src="../public/_js/popper.min.js"></script>
+    <script src="../public/_js/bootstrap.min.js"></script>
+
+    <script src="../public/js_jq/jquery-3.4.1.js"></script>
+
+    <!-- 標題 頁尾css -->
+    <link rel="stylesheet" href="../public/header_footer_css/everypage.css">
+
+
+
+    <style>
+        /* 標題 */
+        .mainBox {
+            position: relative;
+            height: 1500px;
+
+        }
+
+        .trafficTlt {
+            position: absolute;
+            left: 15%;
+            width: 500px;
+            height: 500px;
+        }
+
+        .trafficTlt h3,
+        .trafficTlt h4 {
+            margin: 35px 10px;
+            letter-spacing: 0.1rem;
+            color: #212529;
+        }
+
+
+        /* 介紹下面的水平線 */
+        .trafficTlt:after {
+            content: '';
+            position: absolute;
+            top: 37%;
+            left: 1%;
+            bottom: 0;
+            right: 0;
+            width: 250px;
+            height: 1px;
+            background-color: #dcdcdc;
+        }
+
+        /* 地圖 */
+
+        #map {
+            height: 500px;
+            width: 650px;
+            margin: 250px 0px 150px 350px;
+            display: inline-block;
+        }
+
+        /* 地點文字敘述 */
+        .mapTxtBox {
+            position: relative;
+            margin-top: -756px;
+            margin-left: 60%;
+            height: 500px;
+            width: 500px;
+        }
+
+        .mapTxtBox .mapTlt {
+            background-color: var(--color20);
+            position: absolute;
+            top: 20%;
+            right: 20%;
+            width: 100%;
+            height: 100%;
+            transition: 0.8s;
+            color: white;
+        }
+
+        .mapTlt p {
+            text-align: center;
+            font-weight: 600;
+            font-size: 30px;
+            margin: 140px;
+        }
+
+        .mapTxtBox .mapTxt {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            top: 25%;
+            right: 25%;
+            opacity: 0;
+            background-color: var(--color19);
+            padding: 20px;
+            transition: 0.8s;
+            color: white;
+            font-weight: 600;
+        }
+
+        .mapTxt p {
+            margin: 15px;
+            font-size: 21px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .mapTxt span {
+            line-height: 2.5rem;
+            margin: 15px;
+            display: inline-block;
+        }
+
+        .mapTxt a {
+            display: block;
+            text-align: right;
+            margin: 15px;
+
+        }
+
+        .mapTxtBox:hover .mapTlt {
+            opacity: 0;
+        }
+
+        .mapTxtBox:hover .mapTxt {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+
+        /* 周邊景點  */
+        .attracrionBox p {
+            font-size: 25px;
+            font-weight: 600;
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* 第一列 */
+
+        .attracrionItem {
+            height: 380px;
+            text-align: center;
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+        }
+
+        .mycard {
+            height: 250px;
+            width: 350px;
+            margin: 0 20px;
+            background-color: white;
+            transition: 0.4s;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .mycard:hover {
+            height: 380px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .mycard .myimg {
+            height: 200px;
+            width: 100%;
+        }
+
+        .mycard .myimg img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .mycard .topText {
+            padding: 5px;
+        }
+
+        .mycard .topText .attrName {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .mycard .bottomText {
+            padding: 0 20px 10px 20px;
+            margin-top: 5px;
+            background: white;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.1s;
+        }
+
+        .mycard:hover .bottomText {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mycard .bottomText .Text {
+            text-align: justify;
+        }
+
+        .mycard .bottomText .attrBtn {
+            margin: 10px 0;
+            text-align: right;
+        }
+
+        .mycard .bottomText .attrBtn img {
+            width: 25px;
+            transition: 0.2s;
+        }
+
+        .mycard .bottomText .attrBtn img:hover {
+            transform: scale(1.2);
+        }
+
+
+
+
+
+
+        /* 響應式網頁 */
+        /* @media screen and (max-width:978px) {
+            .attracrionItem {
+                flex-wrap: wrap;
+                flex-direction: column;
+            }
+
+            .mycard {
+                max-width: 700px;
+                margin: 20px 0;
+            }
+        } */
+    </style>
+
+
+
+</head>
+
+<body>
+    <header class="headBox">
+        <div class="headNav">
+            <span><a id="homeName" href="./index.html">SG House</a></span>
+            <a href="./roomtype.html">房型介紹</a>
+            <a href="./service.html">服務項目</a>
+            <a href="./location.html">交通資訊</a>
+            <a href="./policy.html">訂房須知</a>
+        </div>
+    </header>
+    <main class="mainBox">
+        <div class="trafficTlt">
+            <h3>Traffic <br>
+                Information</h3>
+            <h4>交通資訊</h4>
+        </div>
+        <div class="mapBox">
+            <div id="map"></div>
+        </div>
+        <div class="mapTxtBox">
+            <div class="mapTlt">
+                <p>交通資訊</p>
+                <p>Here→</p>
+            </div>
+            <div class="mapTxt" id="mapTxt">
+                <p>大眾運輸-火車</p>
+                <span>於豐原火車站下車→轉搭客運(185、186號)→<br>
+                    至福隆新村站下車→接著步行約5分鐘即可到達。</span>
+                <p>自行駕車</p>
+                <span>國道一號→168公里處(豐原/神岡)交流道→往神岡方向→
+                    中山路627號(神岡工業高級中等學校)後右轉可抵。</span>
+                <a href="#" target="_blank">Google Maps ></a>
+            </div>
+        </div>
+        <div class="attracrionBox">
+            <div class="attracrionTlt">
+                <p>周邊景點</p>
+            </div>
+            <!-- 卡片一列 -->
+            <div class="attracrionItem">
+                <div class="mycard">
+                    <div class="myimg">
+                        <img src="../public/img/attraction/潭雅神綠園道.jpg" alt="">
+                    </div>
+                    <div class="topText">
+                        <div class="attrName">潭雅神綠園道</div>
+                    </div>
+                    <div class="bottomText">
+                        <div class="Text">綠意唯美的自行車道，被森林給包圍著，騎鐵馬運動健身，
+                            還能欣賞綠林之美讓身心的疲憊，也隨之淨化了。
+                        </div>
+                        <div class="attrBtn">
+                            <a href="https://reurl.cc/kZkExq" target="_blank"><img src="../public/img/icon/geo-alt-fill.svg"
+                                    alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mycard">
+                    <div class="myimg">
+                        <img src="../public/img/attraction/紙博物館.jpg" alt="">
+                    </div>
+                    <div class="topText">
+                        <div class="attrName">紙博館</div>
+                    </div>
+                    <div class="bottomText">
+                        <div class="Text">以「紙」為主題的博物館，免門票就可以參觀
+                            ，裡頭展示了很多紙藝品、特殊紙材，還有利用紙元素點綴的展場空間。
+                        </div>
+                        <div class="attrBtn">
+                            <a href="https://reurl.cc/LbVMyx" target="_blank"><img src="../public/img/icon/geo-alt-fill.svg"
+                                    alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mycard">
+                    <div class="myimg">
+                        <img src="../public/img/attraction/氣球博物館.jpg" alt="">
+                    </div>
+                    <div class="topText">
+                        <div class="attrName">氣球博物館</div>
+                    </div>
+                    <div class="bottomText">
+                        <div class="Text">以氣球為主題的氣球觀光工廠，結合文化創意與觀光的景點
+                            ，讓來到這裡的訪客們體驗到氣球DIY樂趣。
+                        </div>
+                        <div class="attrBtn">
+                            <a href="https://reurl.cc/NrnRv5" target="_blank"><img src="../public/img/icon/geo-alt-fill.svg"
+                                    alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="BackTop">
+            <img src="../public/img/icon/arrow-up-circle-fill.svg" alt="">
+            <p>Back <br>
+                to top</p>
+        </div>
+    </main>
+    <footer class="footerBox">
+        <div class="mytxt">
+            <p>© Copyright SG House - 2021</p>
+        </div>
+    </footer>
+
+    <script>
+
+
+
+        var map;
+        var position = {
+            lat: 24.2506616,
+            lng: 120.6810344
+        };
+        var contentString = '<span style="5px">SG house</span>';
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13,
+                center: position,
+
+                //  snazzy maps 找到喜歡的風格，貼上代碼 (JAVASCRIPT STYLE ARRAY:)
+                styles: [
+                    {
+                        "featureType": "water",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#e9e9e9"
+                            },
+                            {
+                                "lightness": 17
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#f5f5f5"
+                            },
+                            {
+                                "lightness": 20
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#ffffff"
+                            },
+                            {
+                                "lightness": 17
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color": "#ffffff"
+                            },
+                            {
+                                "lightness": 29
+                            },
+                            {
+                                "weight": 0.2
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#ffffff"
+                            },
+                            {
+                                "lightness": 18
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.local",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#ffffff"
+                            },
+                            {
+                                "lightness": 16
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#f5f5f5"
+                            },
+                            {
+                                "lightness": 21
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.park",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#dedede"
+                            },
+                            {
+                                "lightness": 21
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#ffffff"
+                            },
+                            {
+                                "lightness": 16
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "saturation": 36
+                            },
+                            {
+                                "color": "#333333"
+                            },
+                            {
+                                "lightness": 40
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#f2f2f2"
+                            },
+                            {
+                                "lightness": 19
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#fefefe"
+                            },
+                            {
+                                "lightness": 20
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color": "#fefefe"
+                            },
+                            {
+                                "lightness": 17
+                            },
+                            {
+                                "weight": 1.2
+                            }
+                        ]
+                    }
+                ]
+            });
+            var marker = new google.maps.Marker({
+                map: map,
+                position: position,
+                // 更換地圖標記圖案
+                icon: {
+                    url: './img/icon/cottage_black_24dp.svg',
+                    // scaledSize: new google.maps.Size(50, 150)  //改變圖片大小
+                },
+            });
+
+            // 資訊視窗設定 InfoWindow Options
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString,
+                position: position,
+                maxWidth: 100,
+                disableAutoPan: true,
+                // pixelOffset: new google.maps.Size(0, 0)  //改變字框位置
+            });
+
+            infowindow.open(map, marker);
+
+            google.maps.event.addDomListener(window, 'load', initMap);
+
+        }
+
+
+        $(function () {
+            $('#BackTop').click(function () {
+                //當點擊這個按鈕時，自動捲動到網頁最上方，0.600秒完成捲動的動作
+                $('html,body').animate({ scrollTop: 0 }, 600);
+            });
+            //當瀏覽器的捲軸在移動時，就執行以下的程式
+            $(window).scroll(function () {
+                //判斷網頁可視範圍的最上方距離網頁頂端是否超過 300 px  
+                //超過 300 px，以0.222秒的特效顯示按鈕    
+                if ($(this).scrollTop() > 300) {
+                    $('#BackTop').fadeIn(222);
+                    //未超過 300 px，先停止正在進行的特效，接著以 0.222 秒的特效隱藏按鈕        
+                } else {
+                    $('#BackTop').stop().fadeOut(222);
+                }
+            }).scroll();
+        });
+
+
+
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArRals1Q50PypY4wUpNPlHJEhKS9pB2QI&callback=initMap">
+        </script>
+</body>
+
+</html>

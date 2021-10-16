@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="stylesheet" href="../public/_css/bootstrap.min.css">
+    <script src="../public/_js/jquery.min.js"></script>
+    <script src="../public/_js/popper.min.js"></script>
+    <script src="../public/_js/bootstrap.min.js"></script>
+
+    <script src="../public/js_jq/jquery-3.4.1.js"></script>
+
+    <!-- 標題 頁尾css -->
+    <link rel="stylesheet" href="../public/header_footer_css/everypage.css">
+
+    <style>
+        /* 標題 */
+        .mainBox {
+            position: relative;
+            height: 1150px;
+        }
+
+        .serviceBox {
+            position: absolute;
+            left: 15%;
+            width: 500px;
+            height: 500px;
+        }
+
+        .serviceBox h3,
+        .serviceBox h4 {
+            margin: 35px 10px;
+            letter-spacing: 0.07em;
+        }
+
+        /* 介紹下面的水平線 */
+        .serviceBox:after {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 1%;
+            bottom: 0;
+            right: 0;
+            width: 250px;
+            height: 1px;
+            background-color: #dcdcdc;
+        }
+
+        /* 表格 */
+        .servicetb {
+            position: absolute;
+            left: 8%;
+            top: 25%;
+            width: 1600px;
+            transition: 0.4s;
+
+        }
+
+        .serviceTxt {
+            width: 400px;
+            text-align: center;
+            background-color: var(--color21);
+        }
+
+        .serviceImg {
+            background-color: #eaf2f4;
+            width: 400px;
+            height: 400px;
+        }
+
+        .imgCover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .serviceTxt h3,
+        .serviceTxt h4 {
+            margin: 10px;
+            letter-spacing: 0.07em;
+        }
+
+        .serviceTxt p {
+            letter-spacing: 0.1em;
+            margin: 20px auto;
+        }
+
+        .txt1:hover+.img1,
+        .txt2:hover+.img2 {
+            opacity: 0.5;
+        }
+
+     
+    </style>
+</head>
+
+<body>
+    <header class="headBox">
+        <div class="headNav">
+            <span><a id="homeName" href="./index.html">SG House</a></span>
+            <a href="./roomtype.html">房型介紹</a>
+            <a href="./service.html">服務項目</a>
+            <a href="./location.html">交通資訊</a>
+            <a href="./policy.html">訂房須知</a>
+        </div>
+    </header>
+    <main class="mainBox">
+        <div class="serviceBox">
+            <h3>Service</h3>
+            <h4>服務項目</h4>
+        </div>
+        <table class="servicetb">
+            <tr>
+                <td class="serviceTxt txt1">
+                    <h3>Handmade <br>
+                        Breakfast</h3>
+                    <h4>手工現做早餐</h4>
+                    <p>每日親自為您烹飪早餐<br>
+                        住宿期間搭配季節食材<br>
+                        每天更換早餐內容</p>
+                </td>
+                <td class="serviceImg img1">
+                    <img src="../public/img/service/service_01.jpg" alt="" class="imgCover">
+                </td>
+                <td class="serviceTxt txt2">
+                    <h3>Baggage<br>
+                        Deposit</h3>
+                    <h4>行李寄放</h4>
+                    <p>退房房客可免費寄放行李<br>
+                        時間08:30-18:00。<br>
+                        貴重物品請自行保管，遺失恕不負責。</p>
+                </td>
+                <td class="serviceImg img2">
+                    <img src="../public/img/service/service_02.jpg" alt="" class="imgCover">
+                </td>
+            </tr>
+            <tr>
+                <td class="serviceImg img3">
+                    <img src="../public/img/service/service_03.jpg" alt="" class="imgCover">
+                </td>
+                <td class="serviceTxt txt3">
+                    <h3>Travel</h3>
+                    <h4>旅遊諮詢</h4>
+                    <p>一般旅遊諮詢行程建議<br>
+                        Tour Information
+                    </p>
+                </td>
+                <td class="serviceImg img4">
+                    <img src="../public/img/service/service_04.jpg" alt="" class="imgCover">
+                </td>
+                <td class="serviceTxt txt4">
+                    <h3>Shuttle<br>
+                        Service</h3>
+                    <h4>接駁服務</h4>
+                    <p>豐原火車站/民宿：免費接送<br>
+                        並請提供日期/車次抵達時間<br>
+                        聯絡資料(姓名、人數、電話)
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <div id="BackTop">
+            <img src="../public/img/icon/arrow-up-circle-fill.svg" alt="">
+            <p>Back <br>
+                to top</p>
+        </div>
+    </main>
+    <footer class="footerBox">
+        <div class="mytxt">
+            <p>© Copyright SG House - 2021</p>
+        </div>
+    </footer>
+
+    <script>
+
+        $(function () {
+            $('#BackTop').click(function () {
+                //當點擊這個按鈕時，自動捲動到網頁最上方，0.600秒完成捲動的動作
+                $('html,body').animate({ scrollTop: 0 }, 300);
+            });
+            //當瀏覽器的捲軸在移動時，就執行以下的程式
+            $(window).scroll(function () {
+                //判斷網頁可視範圍的最上方距離網頁頂端是否超過 300 px  
+                //超過 300 px，以0.222秒的特效顯示按鈕    
+                if ($(this).scrollTop() > 300) {
+                    $('#BackTop').fadeIn(222);
+                    //未超過 300 px，先停止正在進行的特效，接著以 0.222 秒的特效隱藏按鈕        
+                } else {
+                    $('#BackTop').stop().fadeOut(222);
+                }
+            }).scroll();
+
+
+            // 滑鼠移到字，圖片變半透明(因hover無法點選前面的，所以用此作法)
+            $('.txt3').mouseenter(function () {
+                $('.img3').css('opacity', '0.5')
+            })
+            $('.txt3').mouseleave(function () {
+                $('.img3').css('opacity', '1')
+            })
+
+            $('.txt4').mouseenter(function () {
+                $('.img4').css('opacity', '0.5')
+            })
+            $('.txt4').mouseleave(function () {
+                $('.img4').css('opacity', '1')
+            })
+
+        });
+
+
+
+
+    </script>
+
+</body>
+
+
+</html>

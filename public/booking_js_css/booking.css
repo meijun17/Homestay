@@ -1,0 +1,260 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+        /* 原本標題頁尾 背景顏色 */
+        --color2: #eaf2f4;
+        /* 原本標題頁尾 字顏色 */
+        --color3:#171E26;
+        /* a 標籤hover顏色 */
+        --color4:#F2CD5E;
+    
+    
+        --color7:#99d3df;
+        --color8:#88bbd6;
+        --color9:#cdcdcd;
+        --color10:#e9e9e9;
+    
+        --color11:#4484ce;
+        --color12:#d9d9d9;
+        --color13:#f9cf00;
+        --color14:#f19f4d;
+    
+    
+        --color15:#6b7a8f;
+        --color16:#f7882f;
+        --color17:#f7c331;
+        --color18:#dcc7aa;
+    
+        --color19:#a9b7cd;
+        --color20:#c7d8c6;
+        --color21:#efd9c1;
+       
+        --color22:#EBEFF2;
+}
+/* 版面位置 */
+
+.container{
+    position: relative;
+    width: 900px;
+    height: 1000px;
+    background-color: var(--color22);
+}
+
+.inputPlan{
+    position: absolute;
+    top: 12%;
+}
+.outputPlan{
+    position: absolute;
+    top: 22%;
+}
+.guestInfo{
+    position: absolute;
+    top: 50%;
+}
+
+.checkResTlt h3{
+    font-weight: 600;
+}
+
+/* 照片 */
+.container img{
+    width: 260px;
+    position: absolute;
+    right: 10%;
+    top: 27%;
+}
+
+
+
+/*  inputPlan 內容 */
+
+#from,#to{
+    width: 125px;
+    height: 25px;
+    margin: 0 20px 0 0;
+    outline: none;
+}
+
+#adult,#child{
+    margin: 0 20px 0 0;
+    outline: none;
+    height: 25px;
+}
+
+/* 按鈕 1  */
+#checkItem{
+    width: 60px;
+    border: none;
+    border-radius: 5px;
+    margin:  12px 0 0 720px;
+}
+
+.inputPlan span{
+    font-size: 17px;
+}
+
+/*  outputPlan 內容 */
+
+.checkRes{
+    height: 400px;
+    padding: 0 20px;
+}
+.checkResTlt{
+    height: 80px;
+    background-color: var(--color19);
+    border-radius: 5px;
+}
+.checkResTlt h3{
+    position: absolute;
+    top: 2.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #3C4C59;
+}
+
+
+
+.outputPlan p{
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+.outputPlan span{
+    font-size: 17px;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+
+
+
+/* guestInfo  */
+.guestInfo p{
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+tr td{
+    width: 500px;
+    text-align: left;
+    
+}   
+
+
+.guestInfo p{
+    padding: 0 20px;
+}
+
+
+form{
+    padding: 0 20px;
+}
+.guestInfo input{
+    width: 350px;
+    outline: none;
+}
+.guestInfo span{
+    padding: 12px 0;
+    display: inline-block;
+} 
+textarea{
+    outline: none;
+} 
+
+/* 按鈕 */
+#checkInfo{
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0 10px 340px;
+    background-color: var(--color19);
+    color: white;
+    font-weight: 600;
+}
+
+#checkItem{
+    background-color: var(--color19);
+    color: white;
+    font-weight: 600;
+    width: 80px;
+    height: 30px;
+}
+/* 橫線 1 */
+.inputPlan:after{
+    content: "";
+    position: absolute;
+    top: 125%;
+    left: 0%;
+    /* bottom: 0; */
+    right: 0;
+    width: 800px;
+    height: 1px;
+    background-color: #dcdcdc;
+}
+
+/* 橫線 2 */
+.outputPlan:before{
+    content: "";
+    position: absolute;
+    top: 17%;
+    left: 1%;
+    bottom: 0;
+    right: 0;
+    width: 800px;
+    height: 1px;
+    background-color: #dcdcdc;
+}
+
+
+/* 橫線 3*/
+
+#totalPrice:before{
+    content: "";
+    position: absolute;
+    top: 84%;
+    left: 1%;
+    bottom: 0;
+    right: 0;
+    width: 800px;
+    height: 1px;
+    background-color: #dcdcdc;
+}
+
+
+/* 橫線 4*/
+.guestInfo p:after{
+    content: "";
+    position: absolute;
+    top: 9%;
+    left: 2.5%;
+    bottom: 0;
+    right: 0;
+    width: 800px;
+    height: 1px;
+    background-color: #dcdcdc;
+}
+
+.checkResTlt a img{
+    position: absolute;
+    top: 2.5%;
+    left: 2.5%;
+    width: 35px;
+}
+
+
+/* 小孩新增下拉選單樣式 */
+#childcheckbox{
+    display: inline-block;
+    outline: none;
+}
+
+
+
+

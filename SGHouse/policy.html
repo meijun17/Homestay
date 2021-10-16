@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../public/_css/bootstrap.min.css">
+    <script src="../public/_js/jquery.min.js"></script>
+    <script src="../public/_js/popper.min.js"></script>
+    <script src="../public/_js/bootstrap.min.js"></script>
+
+    <script src="../public/js_jq/jquery-3.4.1.js"></script>
+
+    <!-- 標題 頁尾css -->
+    <link rel="stylesheet" href="../public/header_footer_css/everypage.css">
+
+    <style>
+
+        /* 標題 */
+        .mainBox {
+            position: relative;
+            height: 1325px;
+
+        }
+
+        .noticeTlt {
+            position: absolute;
+            left: 15%;
+            width: 500px;
+            height: 500px;
+        }
+
+        .noticeTlt h3,
+        .noticeTlt h4 {
+            margin: 35px 10px;
+            letter-spacing: 0.07em;
+        }
+
+        .noticeTlt p {
+            padding: 10px;
+            letter-spacing: 0.1rem;
+            font-weight: 550;
+        }
+
+        /* 介紹下面的水平線 */
+        .noticeTlt:after {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 1%;
+            bottom: 0;
+            right: 0;
+            width: 250px;
+            height: 1px;
+            background-color: #dcdcdc;
+        }
+
+        /* 內容標題 */
+        .noticeTxt{
+            position: absolute;
+            left: 32%;
+            top: 15%;
+            padding: 20px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            background-color: var(--color22);  
+        }
+        .noticeTxt h5{
+            display: inline-block;
+            line-height: 35px;
+            padding: 5px 20px;
+            font-weight: 550;
+            background-color: var(--color21);
+            box-shadow: 0.5px 0.5px 4px rgba(0, 0, 0, 0.2);
+            color: white;
+            margin: 5px 20px;
+            color: var(--color15);
+        }
+        .noticeTxt p{
+            padding: 5px 20px;
+            color: var(--color15);
+            margin: 10px 15px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <header class="headBox">
+        <div class="headNav">
+            <span><a id="homeName" href="./index.html">SG House</a></span>
+            <a href="./roomtype.html">房型介紹</a>
+            <a href="./service.html">服務項目</a>
+            <a href="./location.html">交通資訊</a>
+            <a href="./policy.html">訂房須知</a>
+        </div>
+    </header>
+    <main class="mainBox">
+        <div class="noticeBox">
+            <div class="noticeTlt">
+                <h3>Notice</h3>
+                <h4>訂房須知</h4>
+            </div>
+            <div class="noticeTxt">
+                <h5>訂房說明</h5>
+               
+                <p>加人服務可加床：每人 500 元；8 歲以下孩童每房可有 1 位不佔床不收費</p>
+                <p>旅宿未設有電梯，行動不便者及需攜帶大型行李的旅人請自行斟酌訂房</p>
+
+                <h5>延退規定</h5>
+                <p>若旅人已預定住房但因私人因素需取消訂房時，可依下列之標準轉帳退還已繳之訂金</p>
+                <p> (1)旅人於預定住宿日 7 日（含）前通知者，可退還已付金額 50 %</p>
+                <p> (2)旅人於預定住宿日當日至 6 日前通知或未於通知者，將不退還已付之訂金</p>
+                <p>遇天災（如地震、颱風）等不可抗拒之因素，經旅宿所在地政府宣布停止上班上課時，可轉帳全額退款</p>
+
+                <h5>住宿小叮嚀</h5>
+                <p>15:00 後皆可入住；須事先與旅宿預約入住時間，請於入住 日前預約</p>
+                <p>退房時間：11:00 前；請遵守旅宿規定之退房時間</p>
+                <p>早餐供應時段為早上8:00~10:00</p>
+                <p>為維護住宿品質，禁止攜帶寵物，若有擅自將寵物攜入之情形，旅宿有權終止住房權利，並將不退還已付之費用</p>
+                <p>為響應環保節能，請自備牙刷及牙膏</p>
+                <p>老屋難免隔音較差，請放輕腳步，壓低音量</p>
+                <p>請勿在房內飲食，如需用餐請至公共空間，用餐後也協助清潔整理</p>
+                <p>為維護住宿安寧，請勿讓孩童隨意奔跑、大聲喧嘩</p>
+                <p>入住時請攜帶身分證或護照等證件以供登記住宿使用</p>
+                <p>貴重物品請自行保管，旅宿無法負保管責任</p>
+                <p>室內全面禁止吸菸，若有抽菸需求可至室外．若有違反情形，旅宿有權終止住房權利，並將不退還已付之費用</p>
+                <p>禁止吸毒、酗酒、賭博、大聲喧嘩、鬧事、施放炮竹及任何不法行為；若有違法之情形，旅宿有權終止住房權利並索取賠償，且將報警處理</p>
+            </div>
+        </div>
+        <div id="BackTop">
+            <img src="../public/img/icon/arrow-up-circle-fill.svg" alt="">
+            <p>Back <br>
+                to top</p>
+        </div>
+    </main>
+    <footer class="footerBox">
+        <div class="mytxt">
+            <p>© Copyright SG House - 2021</p>
+        </div>
+    </footer>
+    <script>
+
+        $(function () {
+            $('#BackTop').click(function () {
+                //當點擊這個按鈕時，自動捲動到網頁最上方，0.600秒完成捲動的動作
+                $('html,body').animate({ scrollTop: 0 }, 300);
+            });
+            //當瀏覽器的捲軸在移動時，就執行以下的程式
+            $(window).scroll(function () {
+                //判斷網頁可視範圍的最上方距離網頁頂端是否超過 300 px  
+                //超過 300 px，以0.222秒的特效顯示按鈕    
+                if ($(this).scrollTop() > 300) {
+                    $('#BackTop').fadeIn(222);
+                    //未超過 300 px，先停止正在進行的特效，接著以 0.222 秒的特效隱藏按鈕        
+                } else {
+                    $('#BackTop').stop().fadeOut(222);
+                }
+            }).scroll();
+        });
+
+    </script>
+
+</body>
+
+</html>
